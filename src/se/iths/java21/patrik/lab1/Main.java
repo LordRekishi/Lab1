@@ -14,6 +14,7 @@ public class Main {
         while (menu) {
 
             System.out.println("""
+                    
                     Welcome to Lab 1
                     Presented by: Patrik Fallqvist Magnusson
 
@@ -32,7 +33,9 @@ public class Main {
                 case "3" -> StenSaxPase();
                 case "4" -> OrdningOchReda();
                 case "E" -> {
-                    System.out.println("Program ending...");
+                    System.out.println("""
+                            
+                            Program ending...""");
                     menu = false;
                 }
             }
@@ -72,7 +75,9 @@ public class Main {
                 break;
         }
 
-        System.out.println("Thank you for playing, do you want to return to Main Menu? (Y/N)");
+        System.out.println("""
+                
+                Thank you for playing, do you want to return to Main Menu? (Y/N)""");
         String exitInput = scanner.nextLine();
 
         if (exitInput.equalsIgnoreCase("n"))
