@@ -10,9 +10,9 @@ public class UppOchNer {
     public static void uppOchNer() {
 
         System.out.println("""
-                
+                                
                 Running program... Upp och Ner!
-                
+                                
                 HOW TO PLAY:
                 Continue writing words and press Enter
                 When you're ready write End to reverse the order
@@ -39,9 +39,12 @@ public class UppOchNer {
             else
                 break;
         }
+        returnToMenu();
+    }
 
+    private static void returnToMenu() {
         System.out.println("""
-                
+
                 Thank you for playing, do you want to return to Main Menu? (Y/N)""");
         String exitInput = scanner.nextLine();
 
