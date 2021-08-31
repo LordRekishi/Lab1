@@ -28,10 +28,10 @@ public class Main {
             String menuChoice = scanner.nextLine().toUpperCase();
 
             switch (menuChoice) {
-                case "1" -> UppOchNer();
-                case "2" -> MinMax();
-                case "3" -> StenSaxPase();
-                case "4" -> OrdningOchReda();
+                case "1" -> UppOchNer.uppOchNer();
+                case "2" -> MinMax.minMax();
+                case "3" -> StenSaxPase.stenSaxPase();
+                case "4" -> OrdningOchReda.ordningOchReda();
                 case "E" -> {
                     System.out.println("""
                             
@@ -42,54 +42,10 @@ public class Main {
         }
     }
 
-    public static void UppOchNer() {
-
-        System.out.println("""
-                
-                Running program... Upp och Ner!
-                
-                HOW TO PLAY:
-                Continue writing words and press Enter
-                When you're ready write End to reverse the order
-                GOOD LUCK!
-                """);
-
-        ArrayList<String> inputList = new ArrayList<>();
+    
 
 
-        while (true) {
-            String input = scanner.nextLine();
 
-            if (input.equalsIgnoreCase("END")) {
-                break;
-            } else {
-                inputList.add(input);
-            }
-        }
 
-        for (int i = inputList.size() - 1; i <= inputList.size(); i--) {
 
-            if (i >= 0)
-                System.out.println(inputList.get(i));
-            else
-                break;
-        }
-
-        System.out.println("""
-                
-                Thank you for playing, do you want to return to Main Menu? (Y/N)""");
-        String exitInput = scanner.nextLine();
-
-        if (exitInput.equalsIgnoreCase("n"))
-            UppOchNer();
-    }
-
-    public static void MinMax() {
-    }
-
-    public static void StenSaxPase() {
-    }
-
-    public static void OrdningOchReda() {
-    }
 }
