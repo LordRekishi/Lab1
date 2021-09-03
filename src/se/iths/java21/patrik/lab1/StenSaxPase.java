@@ -8,7 +8,6 @@ public class StenSaxPase {
     static int playerScore;
     static int computerScore;
 
-
     static Scanner scanner = new Scanner(System.in);
 
     public static void stenSaxPase() {
@@ -26,6 +25,7 @@ public class StenSaxPase {
                 Sten beats Sax!
                 Sax beats Påse!
                 Påse beats sten!
+                
                 GOOD LUCK!
                 """);
 
@@ -122,6 +122,5 @@ public class StenSaxPase {
             stenSaxPase();
         else
             Main.mainMenu();
-
     }
 }

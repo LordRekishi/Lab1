@@ -16,17 +16,16 @@ public class UppOchNer {
                 HOW TO PLAY:
                 Continue writing words and press Enter
                 When you're ready write End to reverse the order
+                
                 GOOD LUCK!
                 """);
 
-        minMaxGame();
-
+        gamePlay();
         returnToMenu();
     }
 
-    private static void minMaxGame() {
+    private static void gamePlay() {
         ArrayList<String> inputList = new ArrayList<>();
-
 
         while (true) {
             String input = scanner.nextLine();
@@ -55,6 +54,8 @@ public class UppOchNer {
 
         if (exitInput.equalsIgnoreCase("n"))
             uppOchNer();
+        else
+            Main.mainMenu();
     }
 
 }

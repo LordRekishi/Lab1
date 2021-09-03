@@ -8,6 +8,10 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        System.out.println("""
+                                 
+                Welcome to Lab 1
+                Presented by: Patrik Fallqvist Magnusson""");
 
         mainMenu();
     }
@@ -19,21 +23,20 @@ public class Main {
 
             System.out.println("""
                     
-                    Welcome to Lab 1
-                    Presented by: Patrik Fallqvist Magnusson
-
                     Game Menu
-                    1. Upp och Ner
-                    2. Min Max
-                    3. Sten Sax Påse
-                    4. Ordning och reda
-                    e. Avsluta""");
+                    [1] Upp och Ner
+                    [2] Min Max
+                    [3] Sten Sax Påse
+                    [4] Ordning och reda
+                    [E] Avsluta""");
 
-            menu = isMenu(menu);
+            menu = isMenu();
         }
     }
 
-    private static boolean isMenu(boolean menu) {
+    private static boolean isMenu() {
+        boolean menu = true;
+
         String menuChoice = scanner.nextLine().toUpperCase();
 
         switch (menuChoice) {
@@ -46,10 +49,13 @@ public class Main {
                         
                         Program ending...""");
                 menu = false;
+                return menu;
             }
         }
+        System.out.println("""
+        
+        Invalid input...
+        Try again!""");
         return menu;
     }
-
-
 }

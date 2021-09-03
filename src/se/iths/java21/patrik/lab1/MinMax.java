@@ -16,16 +16,21 @@ public class MinMax {
                 HOW TO PLAY:
                 Enter five numbers (both positive and negative are OK)
                 When you have entered five numbers it will tell you the smallest and largest number.
+                
                 GOOD LUCK!
                 """);
 
+        gamePlay();
+
+    }
+
+    private static void gamePlay() {
         int[] inputArray = getInputArray();
 
         sorter(inputArray);
         printOut(inputArray);
 
         returnToMenu();
-
     }
 
     private static int[] getInputArray() {
@@ -72,6 +77,8 @@ public class MinMax {
 
         if (exitInput.equalsIgnoreCase("n"))
             minMax();
+        else
+            Main.mainMenu();
     }
 
 }
