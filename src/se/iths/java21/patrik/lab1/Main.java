@@ -9,6 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        mainMenu();
+    }
+
+    public static void mainMenu() {
         boolean menu = true;
 
         while (menu) {
