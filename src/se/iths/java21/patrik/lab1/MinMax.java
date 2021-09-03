@@ -19,6 +19,16 @@ public class MinMax {
                 GOOD LUCK!
                 """);
 
+        int[] inputArray = getInputArray();
+
+        sorter(inputArray);
+        printOut(inputArray);
+
+        returnToMenu();
+
+    }
+
+    private static int[] getInputArray() {
         int[] inputArray = new int[5];
 
         for (int i = 0; i < inputArray.length; i++) {
@@ -30,16 +40,7 @@ public class MinMax {
                 i--;
             }
         }
-
-        sorter(inputArray);
-
-        System.out.println("\n" +
-                "THE RESULTS: ");
-        System.out.println("Smallest Number: " + inputArray[0]);
-        System.out.println("Largest Number: " + inputArray[4]);
-
-        returnToMenu();
-
+        return inputArray;
     }
 
     private static void sorter(int[] input) {
@@ -54,6 +55,13 @@ public class MinMax {
                 }
             }
         }
+    }
+
+    private static void printOut(int[] inputArray) {
+        System.out.println("\n" +
+                "THE RESULTS: ");
+        System.out.println("Smallest Number: " + inputArray[0]);
+        System.out.println("Largest Number: " + inputArray[4]);
     }
 
     private static void returnToMenu() {

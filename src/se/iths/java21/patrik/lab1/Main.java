@@ -25,27 +25,27 @@ public class Main {
                     4. Ordning och reda
                     e. Avsluta""");
 
-            String menuChoice = scanner.nextLine().toUpperCase();
-
-            switch (menuChoice) {
-                case "1" -> UppOchNer.uppOchNer();
-                case "2" -> MinMax.minMax();
-                case "3" -> StenSaxPase.stenSaxPase();
-                case "4" -> OrdningOchReda.ordningOchReda();
-                case "E" -> {
-                    System.out.println("""
-                            
-                            Program ending...""");
-                    menu = false;
-                }
-            }
+            menu = isMenu(menu);
         }
     }
 
-    
+    private static boolean isMenu(boolean menu) {
+        String menuChoice = scanner.nextLine().toUpperCase();
 
-
-
+        switch (menuChoice) {
+            case "1" -> UppOchNer.uppOchNer();
+            case "2" -> MinMax.minMax();
+            case "3" -> StenSaxPase.stenSaxPase();
+            case "4" -> OrdningOchReda.ordningOchReda();
+            case "E" -> {
+                System.out.println("""
+                        
+                        Program ending...""");
+                menu = false;
+            }
+        }
+        return menu;
+    }
 
 
 }

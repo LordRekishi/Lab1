@@ -19,6 +19,12 @@ public class UppOchNer {
                 GOOD LUCK!
                 """);
 
+        minMaxGame();
+
+        returnToMenu();
+    }
+
+    private static void minMaxGame() {
         ArrayList<String> inputList = new ArrayList<>();
 
 
@@ -39,7 +45,6 @@ public class UppOchNer {
             else
                 break;
         }
-        returnToMenu();
     }
 
     private static void returnToMenu() {
