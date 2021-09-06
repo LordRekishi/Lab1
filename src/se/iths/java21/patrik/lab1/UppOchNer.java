@@ -28,17 +28,25 @@ public class UppOchNer {
         ArrayList<String> inputList = new ArrayList<>();
 
         while (true) {
-            String input = scanner.nextLine();
-
-            if (input.equalsIgnoreCase("END")) {
-                break;
-            } else {
-                inputList.add(input);
-            }
+            if (inputToArrayList(inputList)) break;
         }
 
-        for (int i = inputList.size() - 1; i <= inputList.size(); i--) {
+        printOut(inputList);
+    }
 
+    private static boolean inputToArrayList(ArrayList<String> inputList) {
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("END")) {
+            return true;
+        } else {
+            inputList.add(input);
+        }
+        return false;
+    }
+
+    private static void printOut(ArrayList<String> inputList) {
+        for (int i = inputList.size() - 1; i <= inputList.size(); i--) {
             if (i >= 0)
                 System.out.println(inputList.get(i));
             else

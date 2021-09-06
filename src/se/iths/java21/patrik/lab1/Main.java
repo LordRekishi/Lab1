@@ -48,8 +48,7 @@ public class Main {
                 System.out.println("""
                         
                         Program ending...""");
-                menu = false;
-                return menu;
+                System.exit(0);
             }
         }
         System.out.println("""
