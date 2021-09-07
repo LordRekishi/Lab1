@@ -1,6 +1,7 @@
 package se.iths.java21.patrik.lab1;
 
-import java.util.ArrayList;
+import se.iths.java21.patrik.lab1.tools.ValueLookup;
+
 import java.util.Scanner;
 
 public class MinMax {
@@ -10,26 +11,26 @@ public class MinMax {
     public static void minMax() {
 
         System.out.println("""
-            
-                Running program... Min Max!
+                            
+                MIN MAX
                                 
                 HOW TO PLAY:
-                Enter five numbers (both positive and negative are OK)
+                Enter FIVE numbers (both positive and negative numbers are OK)
+                Press ENTER between each number
+                                
                 When you have entered five numbers it will tell you the smallest and largest number.
-                
+                                
                 GOOD LUCK!
                 """);
 
         gamePlay();
-
     }
 
     private static void gamePlay() {
         int[] inputArray = getInputArray();
+        ValueLookup lookupMinMax = new ValueLookup(inputArray);
 
-        sorter(inputArray);
-        printOut(inputArray);
-
+        printOut(lookupMinMax.getLargest(), lookupMinMax.getSmallest());
         returnToMenu();
     }
 
@@ -48,25 +49,11 @@ public class MinMax {
         return inputArray;
     }
 
-    private static void sorter(int[] input) {
-        int temp;
-
-        for (int i = 0; i < input.length; i++) {
-            for (int j = i + 1; j < input.length; j++) {
-                if (input[i] > input[j]) {
-                    temp = input[i];
-                    input[i] = input[j];
-                    input[j] = temp;
-                }
-            }
-        }
-    }
-
-    private static void printOut(int[] inputArray) {
+    private static void printOut(int largest, int smallest) {
         System.out.println("\n" +
-                "THE RESULTS: ");
-        System.out.println("Smallest Number: " + inputArray[0]);
-        System.out.println("Largest Number: " + inputArray[4]);
+                           "THE RESULTS: ");
+        System.out.println("Smallest Number: " + smallest);
+        System.out.println("Largest Number: " + largest);
     }
 
     private static void returnToMenu() {

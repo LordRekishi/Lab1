@@ -1,6 +1,7 @@
 package se.iths.java21.patrik.lab1;
 
-import java.util.Arrays;
+import se.iths.java21.patrik.lab1.tools.ValueLookup;
+
 import java.util.Scanner;
 
 public class OrdningOchReda {
@@ -9,13 +10,16 @@ public class OrdningOchReda {
 
     public static void ordningOchReda() {
         System.out.println("""
-                                
-                Running program... Ordning och Reda!
+                                              
+                ORDNING OCH REDA
                                 
                 HOW TO PLAY:
-                Write five numbers, seperated by space
-                Then Enter
-                
+                Write FIVE numbers, seperated by SPACE
+                Then press ENTER
+                                
+                Program will return smallest, second smallest, second largest, and largest number
+                As well as if numbers were entered in order, and the sum of all numbers put together.
+                                
                 GOOD LUCK!
                 """);
 
@@ -25,15 +29,21 @@ public class OrdningOchReda {
     private static void gamePlay() {
         int[] newArray = inputArray();
         boolean sorted = isSorted(newArray);
-        sorter(newArray);
-        printOut(newArray, sum(newArray), sorted);
+        ValueLookup valueOrdningOchReda = new ValueLookup(newArray);
+
+        printOut(valueOrdningOchReda.getLargest(), valueOrdningOchReda.getSecondLargest(), valueOrdningOchReda.getSecondSmallest(), valueOrdningOchReda.getSmallest(), sum(newArray), sorted);
     }
 
     private static int[] inputArray() {
         int[] newArray = new int[5];
 
         for (int i = 0; i < newArray.length; i++) {
-            newArray[i] = Integer.parseInt(scanner.next());
+            try {
+                newArray[i] = Integer.parseInt(scanner.next());
+            } catch (NumberFormatException ignore) {
+                System.out.println("Invalid input, write one more number for each invalid input!");
+                --i;
+            }
         }
         return newArray;
     }
@@ -41,8 +51,8 @@ public class OrdningOchReda {
     public static int sum(int[] input) {
         int sum = 0;
 
-        for (int i = 0; i < input.length; i++) {
-            sum += input[i];
+        for (int value : input) {
+            sum += value;
         }
         return sum;
     }
@@ -58,33 +68,19 @@ public class OrdningOchReda {
         return true;
     }
 
-    private static void sorter(int[] input) {
-        int temp;
-
-        for (int i = 0; i < input.length; i++) {
-            for (int j = i + 1; j < input.length; j++) {
-                if (input[i] > input[j]) {
-                    temp = input[i];
-                    input[i] = input[j];
-                    input[j] = temp;
-                }
-            }
-        }
-    }
-
-    private static void printOut(int[] inputArray, int sum, boolean sorted) {
+    private static void printOut(int largest, int secondLargest, int secondSmallest, int smallest, int sum, boolean sorted) {
         String isSorted;
 
-        if (sorted == true)
+        if (sorted)
             isSorted = "Yes";
         else
             isSorted = "No";
 
-        System.out.println("\nMin value: " + inputArray[0]);
-        System.out.println("2Min value: " + inputArray[1]);
-        System.out.println("2Max value: " + inputArray[3]);
-        System.out.println("Max value: " + inputArray[4]);
-        System.out.println("I ordning: " + isSorted);
+        System.out.println("\nSmallest value: " + smallest);
+        System.out.println("Second Smallest value: " + secondSmallest);
+        System.out.println("Second Largest value: " + secondLargest);
+        System.out.println("Largest value: " + largest);
+        System.out.println("In order: " + isSorted);
         System.out.println("Sum: " + sum);
 
         returnToMenu();

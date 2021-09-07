@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("""
                                  
-                Welcome to Lab 1
-                Presented by: Patrik Fallqvist Magnusson""");
+                Welcome to JAVA21 - Lab 1
+                Made by: Patrik Fallqvist Magnusson""");
 
         mainMenu();
     }
@@ -22,7 +22,7 @@ public class Main {
         while (menu) {
 
             System.out.println("""
-                    
+                                        
                     Game Menu
                     [1] Upp och Ner
                     [2] Min Max
@@ -35,8 +35,6 @@ public class Main {
     }
 
     private static boolean isMenu() {
-        boolean menu = true;
-
         String menuChoice = scanner.nextLine().toUpperCase();
 
         switch (menuChoice) {
@@ -46,15 +44,19 @@ public class Main {
             case "4" -> OrdningOchReda.ordningOchReda();
             case "E" -> {
                 System.out.println("""
-                        
+                                                
                         Program ending...""");
-                System.exit(0);
+                return false;
+            }
+            default -> {
+                System.out.println("""
+                                
+                        Invalid input...
+                        Try again!""");
+                return true;
             }
         }
-        System.out.println("""
-        
-        Invalid input...
-        Try again!""");
-        return menu;
+        return false;
     }
 }
+

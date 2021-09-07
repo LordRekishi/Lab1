@@ -17,14 +17,19 @@ public class StenSaxPase {
 
         System.out.println("""
                                 
-                Running program... Sten Sax Påse!
+                STEN SAX PÅSE
                                 
                 HOW TO PLAY:
-                This is a fight against the machine!
-                First to reach a score of 3 wins!
+                Choose between STEN, SAX or PÅSE by typing the word in the console
+                Then press ENTER
+                
                 Sten beats Sax!
                 Sax beats Påse!
                 Påse beats sten!
+                
+                This is a fight against the machine!
+                The computer will pick one at random
+                First to reach a score of 3 wins!
                 
                 GOOD LUCK!
                 """);
@@ -61,6 +66,11 @@ public class StenSaxPase {
 
         Random random = new Random();
         int computerChoice = random.nextInt(3);
+
+        // Playerchoice == computerhoice --> Both picked same
+        // Player win --> ett värde
+        // Else --> Computer win
+        // Använda en String[] för valen och lägg in i texten för dynamik
 
         if (playerChoice == 0) {
             if (computerChoice == 0) {

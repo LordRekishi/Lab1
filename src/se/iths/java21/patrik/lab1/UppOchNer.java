@@ -1,6 +1,7 @@
 package se.iths.java21.patrik.lab1;
 
-import java.util.ArrayList;
+import se.iths.java21.patrik.lab1.tools.DynamicArray;
+
 import java.util.Scanner;
 
 public class UppOchNer {
@@ -11,12 +12,12 @@ public class UppOchNer {
 
         System.out.println("""
                                 
-                Running program... Upp och Ner!
+                UPP OCH NER
                                 
                 HOW TO PLAY:
-                Continue writing words and press Enter
-                When you're ready write End to reverse the order
-                
+                Continue writing WORDS and press ENTER in between
+                When you're ready write END to reverse the order
+                                
                 GOOD LUCK!
                 """);
 
@@ -25,7 +26,7 @@ public class UppOchNer {
     }
 
     private static void gamePlay() {
-        ArrayList<String> inputList = new ArrayList<>();
+        DynamicArray inputList = new DynamicArray();
 
         while (true) {
             if (inputToArrayList(inputList)) break;
@@ -34,7 +35,7 @@ public class UppOchNer {
         printOut(inputList);
     }
 
-    private static boolean inputToArrayList(ArrayList<String> inputList) {
+    private static boolean inputToArrayList(DynamicArray inputList) {
         String input = scanner.nextLine();
 
         if (input.equalsIgnoreCase("END")) {
@@ -45,12 +46,9 @@ public class UppOchNer {
         return false;
     }
 
-    private static void printOut(ArrayList<String> inputList) {
-        for (int i = inputList.size() - 1; i <= inputList.size(); i--) {
-            if (i >= 0)
+    private static void printOut(DynamicArray inputList) {
+        for (int i = inputList.length() - 1; i >= 0; i--) {
                 System.out.println(inputList.get(i));
-            else
-                break;
         }
     }
 
