@@ -7,14 +7,12 @@ public class ValueLookup {
     private int secondSmallest;
 
     public ValueLookup(int[] array) {
-//        int temp = 0;
         largest = array[0];
         secondLargest = array[0];
         smallest = array[0];
         secondSmallest = array[0];
 
         for (int value : array) {
-
             if (secondSmallest == smallest)
                 secondSmallest = value;
 
@@ -24,10 +22,10 @@ public class ValueLookup {
             if (secondSmallest > smallest && value < secondSmallest){
                 secondSmallest = value;
             }
-
             if (secondLargest < largest && value > secondLargest) {
                 secondLargest = value;
             }
+
             if (largest < value) {
                 secondLargest = largest;
                 largest = value;
