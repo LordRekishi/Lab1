@@ -1,7 +1,6 @@
 package se.iths.java21.patrik.lab1.tools;
 
 public class DynamicArray {
-
     private String[] words = new String[1];
     private int count = 0;
 
@@ -34,7 +33,5 @@ public class DynamicArray {
     public String[] get() {
         return words;
     }
-
-
 
 }

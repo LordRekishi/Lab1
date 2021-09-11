@@ -19,12 +19,11 @@ public class ValueLookup {
             if (secondLargest == largest)
                 secondLargest = value;
 
-            if (secondSmallest > smallest && value < secondSmallest){
+            if (secondSmallest > smallest && value < secondSmallest)
                 secondSmallest = value;
-            }
-            if (secondLargest < largest && value > secondLargest) {
+
+            if (secondLargest < largest && value > secondLargest)
                 secondLargest = value;
-            }
 
             if (largest < value) {
                 secondLargest = largest;
@@ -41,31 +40,16 @@ public class ValueLookup {
         return largest;
     }
 
-    public void setLargest(int largest) {
-        this.largest = largest;
-    }
-
     public int getSecondLargest() {
         return secondLargest;
-    }
-
-    public void setSecondLargest(int secondLargest) {
-        this.secondLargest = secondLargest;
     }
 
     public int getSmallest() {
         return smallest;
     }
 
-    public void setSmallest(int smallest) {
-        this.smallest = smallest;
-    }
-
     public int getSecondSmallest() {
         return secondSmallest;
     }
 
-    public void setSecondSmallest(int secondSmallest) {
-        this.secondSmallest = secondSmallest;
-    }
 }

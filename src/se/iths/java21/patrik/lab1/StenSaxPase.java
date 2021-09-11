@@ -7,6 +7,7 @@ public class StenSaxPase {
 
     static int playerScore;
     static int computerScore;
+    static String[] choices = {"STEN", "SAX", "PÅSE"};
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -22,15 +23,13 @@ public class StenSaxPase {
                 HOW TO PLAY:
                 Choose between STEN, SAX or PÅSE by typing the word in the console
                 Then press ENTER
-                
+                                
                 Sten beats Sax!
                 Sax beats Påse!
                 Påse beats sten!
-                
-                This is a fight against the machine!
-                The computer will pick one at random
+
                 First to reach a score of 3 wins!
-                
+                                
                 GOOD LUCK!
                 """);
 
@@ -67,59 +66,41 @@ public class StenSaxPase {
         Random random = new Random();
         int computerChoice = random.nextInt(3);
 
-        // Playerchoice == computerhoice --> Both picked same
-        // Player win --> ett värde
-        // Else --> Computer win
-        // Använda en String[] för valen och lägg in i texten för dynamik
+        if (playerChoice == computerChoice) {
+            System.out.println("\nYou both picked " + choices[playerChoice] + ", nobody wins!");
+        } else if (winCheck(playerChoice, computerChoice)) {
+            System.out.println("\nThe Computer picked " + choices[computerChoice] + ". " + choices[playerChoice] + " beats " + choices[computerChoice] + "! You WIN!");
+            playerScore++;
+        } else {
+            System.out.println("\nThe Computer picked " + choices[computerChoice] + ". " + choices[computerChoice] + " beats " + choices[playerChoice] + "! You LOSE!");
+            computerScore++;
+        }
 
-        if (playerChoice == 0) {
-            if (computerChoice == 0) {
-                System.out.println("\nBoth you and the computer picked Sten, nobody wins!");
-            } else if (computerChoice == 1) {
-                System.out.println("\nYou picked Sten, the computer picked Sax. YOU WIN!");
-                playerScore++;
-            } else {
-                System.out.println("\nYou picked Sten, the computer picked Påse. COMPUTER WINS!");
-                computerScore++;
-            }
-        }
-        if (playerChoice == 1) {
-            if (computerChoice == 0) {
-                System.out.println("\nYou picked Sax, the computer picked Sten. COMPUTER WINS!");
-                computerScore++;
-            } else if (computerChoice == 1) {
-                System.out.println("\nBoth you and the computer picked Sax. Nobody wins!");
-            } else {
-                System.out.println("\nYou picked Sax, the computer picked Påse. YOU WIN!");
-                playerScore++;
-            }
-        }
-        if (playerChoice == 2) {
-            if (computerChoice == 0) {
-                System.out.println("\nYou picked Påse, the computer picked Sten. YOU WIN!");
-                playerScore++;
-            } else if (computerChoice == 1) {
-                System.out.println("\nYou picked Påse, the computer picked Sax. COMPUTER WINS!");
-                computerScore++;
-            } else {
-                System.out.println("\nBoth you and the computer picked Påse. Nobody wins!");
-            }
-        }
-        System.out.println("\nCurrent Score");
-        System.out.println("Player: " + playerScore);
-        System.out.println("Computer: " + computerScore);
+        printScore();
 
         if (playerScore < 3 && computerScore < 3) {
             gamePlay();
         }
-
         if (playerScore == 3) {
             System.out.println("\nCongratulations, you have beaten the computer!");
-            returnToMenu();
         } else if (computerScore == 3) {
             System.out.println("\nThe computer have beaten you...");
-            returnToMenu();
         }
+        returnToMenu();
+    }
+
+    private static boolean winCheck(int playerChoice, int computerChoice) {
+        if (playerChoice == 0 && computerChoice == 1)
+            return true;
+        else if (playerChoice == 1 && computerChoice == 2)
+            return true;
+        else return playerChoice == 2 && computerChoice == 0;
+    }
+
+    private static void printScore() {
+        System.out.println("\nCurrent Score");
+        System.out.println("Player: " + playerScore);
+        System.out.println("Computer: " + computerScore);
     }
 
     private static void returnToMenu() {

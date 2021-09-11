@@ -48,7 +48,7 @@ public class UppOchNer {
 
     private static void printOut(DynamicArray inputList) {
         for (int i = inputList.length() - 1; i >= 0; i--) {
-                System.out.println(inputList.get(i));
+            System.out.println(inputList.get(i));
         }
     }
 

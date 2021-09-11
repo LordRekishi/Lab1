@@ -51,7 +51,7 @@ public class MinMax {
 
     private static void printOut(int largest, int smallest) {
         System.out.println("\n" +
-                           "THE RESULTS: ");
+                "THE RESULTS: ");
         System.out.println("Smallest Number: " + smallest);
         System.out.println("Largest Number: " + largest);
     }

@@ -1,6 +1,5 @@
 package se.iths.java21.patrik.lab1;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -46,7 +45,7 @@ public class Main {
                 System.out.println("""
                                                 
                         Program ending...""");
-                return false;
+                System.exit(0);
             }
             default -> {
                 System.out.println("""
